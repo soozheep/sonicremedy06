@@ -698,3 +698,18 @@ footer p {
     max-height: calc(100vh - 140px);
   }
 }
+
+/* Audiosensory Formula switcher */
+.formula-switcher{position:relative}
+.formula-trigger{background:transparent;border:0;font:inherit;cursor:pointer;padding:0;text-align:left}
+.formula-chevron{margin-left:.15rem;color:var(--gold);font-size:1rem;transition:transform .2s}
+.formula-trigger[aria-expanded="true"] .formula-chevron{transform:rotate(180deg)}
+.formula-menu{position:absolute;top:calc(100% + 12px);left:0;width:min(330px,calc(100vw - 2.5rem));padding:.55rem;background:rgba(18,18,20,.98);border:1px solid var(--border);border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.55);z-index:100}
+.formula-menu[hidden]{display:none}
+.formula-item{display:grid;grid-template-columns:78px 1fr auto;gap:.65rem;align-items:center;padding:.7rem .75rem;border-radius:8px;color:var(--text);text-decoration:none!important;font-size:.78rem}
+.formula-item:hover{background:var(--bg-elevated)}
+.formula-item>span{color:var(--gold);text-transform:uppercase;letter-spacing:.05em;font-size:.66rem}
+.formula-item>strong{font-weight:500}
+.formula-item>em{font-style:normal;color:var(--text-muted);font-size:.65rem;white-space:nowrap}
+.formula-item.current{background:color-mix(in srgb,var(--gold) 12%,transparent);outline:1px solid var(--gold-dim)}
+@media(max-width:480px){.logo-sub{display:none}.formula-menu{top:calc(100% + 10px)}}
