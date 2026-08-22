@@ -282,3 +282,30 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeLightbox();
 });
+
+/* Audiosensory Formula switcher */
+function toggleFormulaMenu() {
+  const trigger = document.getElementById('formulaTrigger');
+  const menu = document.getElementById('formulaMenu');
+  if (!trigger || !menu) return;
+  const willOpen = menu.hidden;
+  menu.hidden = !willOpen;
+  trigger.setAttribute('aria-expanded', String(willOpen));
+}
+function closeFormulaMenu() {
+  const trigger = document.getElementById('formulaTrigger');
+  const menu = document.getElementById('formulaMenu');
+  if (menu) menu.hidden = true;
+  if (trigger) trigger.setAttribute('aria-expanded', 'false');
+}
+document.addEventListener('DOMContentLoaded', function () {
+  const trigger = document.getElementById('formulaTrigger');
+  const menu = document.getElementById('formulaMenu');
+  if (!trigger || !menu) return;
+  trigger.addEventListener('click', function (e) { e.stopPropagation(); toggleFormulaMenu(); });
+  menu.addEventListener('click', function (e) { e.stopPropagation(); });
+  document.addEventListener('click', closeFormulaMenu);
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeFormulaMenu();
+});
